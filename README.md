@@ -2,7 +2,8 @@
 
 Start writing TODOs and stop procrastinating today! Using our revolutionary technique called "pen and paper"! ...or if you really hate yourself, use this impractical abomination of a program! YEEHAAAW! 
 
-Team notes:
+Team:
+Nico Zimmermann, Johannes Brandau, Enes Aydin, Mirco Heck
 ## Getting started
 
 Ordnerstruktur/wichtige Files:
