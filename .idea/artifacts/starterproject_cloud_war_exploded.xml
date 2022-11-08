@@ -50,6 +50,8 @@
           <element id="library" level="project" name="Maven: jakarta.persistence:jakarta.persistence-api:3.0.0" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.29" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.19.4" />
+          <element id="library" level="project" name="Maven: com.thetransactioncompany:cors-filter:2.4" />
+          <element id="library" level="project" name="Maven: com.thetransactioncompany:java-property-utils:1.9.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

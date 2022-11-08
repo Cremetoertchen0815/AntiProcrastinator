@@ -11,11 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b07a46a-510c-4d20-8b8f-02e0b0dd5e41" name="Changes" comment="Added support for db-less data testing">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/egotec/starterproject/TodoAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/egotec/starterproject/TodoAPI.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <list id="32b4a4d6-19ce-4d36-81b9-0f3d8f62673b" name="config" comment="" />
     <option name="SHOW_DIALOG" value="false" />
