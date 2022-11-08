@@ -11,10 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b07a46a-510c-4d20-8b8f-02e0b0dd5e41" name="Changes" comment="Added support for db-less data testing">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/egotec/starterproject/DataStorage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/egotec/starterproject/TodoAPI.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/egotec/starterproject/TodoAPI.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <list id="32b4a4d6-19ce-4d36-81b9-0f3d8f62673b" name="config" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +107,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat">
+  <component name="RunManager" selected="Shell Script.init.sh">
     <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
       <method v="2" />
     </configuration>
@@ -217,16 +216,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="HTTP Request.generated-requests | #2" />
-      <item itemvalue="HTTP Request.All in generated-requests" />
       <item itemvalue="Shell Script.init.sh" />
-      <item itemvalue="Tomcat Server.Tomcat" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="HTTP Request.generated-requests | #2" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
