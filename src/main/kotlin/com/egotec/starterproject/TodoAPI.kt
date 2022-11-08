@@ -11,7 +11,7 @@ class TodoAPI {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     fun getTodo(@PathParam("id") id: Long): TodoEntity {
-        if (DataStorage.data == null) DataStorage.data = arrayListOf<TodoEntity>(TodoEntity(1L, "Klaus", "Ich bin der Klaus", false))
+        if (DataStorage.data == null) DataStorage.data = arrayListOf<TodoEntity>(TodoEntity(0L, "Klaus", "Ich bin der Klaus", false))
         return DataStorage.data[id.toInt()]
     }
 
@@ -20,7 +20,7 @@ class TodoAPI {
     @Produces(MediaType.APPLICATION_JSON)
     fun createTodo(todoEntity: TodoEntity): TodoEntity {
         if (DataStorage.data == null) DataStorage.data = arrayListOf<TodoEntity>(TodoEntity(1L, "Klaus", "Ich bin der Klaus", false))
-        todoEntity.id = (DataStorage.data.size - 1).toLong();
+        todoEntity.id = (DataStorage.data.size).toLong();
         DataStorage.data.add(todoEntity);
         return todoEntity
     }
@@ -45,8 +45,7 @@ class TodoAPI {
 
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("{id}")
-    fun deleteTodoById(@PathParam("id") id: Long): TodoEntity {
+    fun deleteTodoById(@QueryParam("id") id: Long): TodoEntity {
         if (DataStorage.data == null) DataStorage.data = arrayListOf<TodoEntity>(TodoEntity(1L, "Klaus", "Ich bin der Klaus", false))
         var el = DataStorage.data[id.toInt()];
         DataStorage.data.removeAt(id.toInt());

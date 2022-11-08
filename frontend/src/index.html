@@ -139,75 +139,86 @@
 <script>
 
 
+  function deleteDataFromServer(id){
+    fetch('http://localhost:8080/backend/api/todo?id=' + id, {method: 'DELETE'}).then(x => {
+      window.location.reload();
+    });
+  }
+
   const getDataFromServer = async () => {
     const response = await fetch('http://localhost:8080/backend/api/todo', {method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       }});
-    const myJson = await response.body; //extract JSON from the http response
-    console.log(myJson);
+    const myJson = await response.json(); //extract JSON from the http response
     return myJson;
     // do something with myJson
   }
 
   // initialize List
-  const txtList = getDataFromServer();
-  console.log(txtList);
-  for (i = 0; i < txtList.length; i++) {
-    var li = document.createElement("li");
-    var inputValue = txtList.content;
-    var t = document.createTextNode(inputValue);
-    li.appendChild(t);
-    document.getElementById("myUL").appendChild(li);
+  getDataFromServer().then(results => {
+    console.log(results);
+    for (i = 0; i < results.length; i++) {
+      console.log(i);
+      var li = document.createElement("li");
+      if (results[i].done) li.className = "checked";
+      li.id = "note" + i;
+      var header = document.createElement("h4");
+      header.textContent = results[i].name;
 
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span);
+      var t = document.createTextNode(results[i].content);
+      li.appendChild(header);
+      li.appendChild(t);
+      document.getElementById("myUL").appendChild(li);
 
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      li.appendChild(span);
+    };
+    console.log("a");
+
+
+    // Create a "close" button and append it to each list item
+    var myNodelist = document.getElementsByTagName("LI");
+    console.log(myNodelist.length);
+    for (i = 0; i < myNodelist.length; i++) {
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      myNodelist[i].appendChild(span);
+    }
+    console.log("b");
+
+    // Click on a close button to hide the current list item
+    var close = document.getElementsByClassName("close");
+    console.log(close.length);
     for (i = 0; i < close.length; i++) {
       close[i].onclick = function() {
+        console.log("af");
         var div = this.parentElement;
         div.style.display = "none";
+        console.log("pensi");
+        deleteDataFromServer(div.id.substring(4));
       }
     }
-  };
+    console.log("c");
 
-  // Create a "close" button and append it to each list item
-  var myNodelist = document.getElementsByTagName("LI");
-  var i;
-  for (i = 0; i < myNodelist.length; i++) {
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    myNodelist[i].appendChild(span);
-  }
-
-  // Click on a close button to hide the current list item
-  var close = document.getElementsByClassName("close");
-  var i;
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-      httpDeleteData(i.toString())
-    }
-  }
-
-  // Add a "checked" symbol when clicking on a list item
-  var list = document.querySelector('ul');
-  list.addEventListener('click', function(ev) {
-    if (ev.target.tagName === 'LI') {
-      ev.target.classList.toggle('checked');
-      for (i = 0; i < list.length; i++) {
-        if( list[i] == ev.target){
-          httpPutData(i, '{"id" : i.toString , "name":"entry", "content":list[i], "done":ev.target.classList.checked.hidden}');
+    // Add a "checked" symbol when clicking on a list item
+    var list = document.querySelector('ul');
+    list.addEventListener('click', function(ev) {
+      if (ev.target.tagName === 'LI') {
+        ev.target.classList.toggle('checked');
+        for (i = 0; i < list.length; i++) {
+          if( list[i] == ev.target){
+            httpPutData(i, '{"done":' + ev.target.classList.checked.hidden + '}');
+          };
         };
       };
-    };
-  }, false);
+    }, false);
+  });
 
   // Create a new list item when clicking on the "Add" button
   function newElement() {
@@ -256,9 +267,6 @@
     sendHttpRequest('POST' , obj )
   }
 
-  function httpDeleteData(id){
-    sendHttpRequest('DELETE',null, id)
-  }
 
   function httpPutData(obj,id){
     sendHttpRequest('PUT', obj, id)
